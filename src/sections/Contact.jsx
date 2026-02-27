@@ -6,19 +6,19 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('sending');
-        
+
         const form = e.target;
         const formData = new FormData(form);
-        
+
         try {
             const response = await fetch('https://formsubmit.co/ajax/mohammedsheik285@gmail.com', {
                 method: 'POST',
-                headers: { 
+                headers: {
                     'Accept': 'application/json'
                 },
                 body: formData
             });
-            
+
             if (response.ok) {
                 setStatus('success');
                 form.reset();
@@ -114,7 +114,7 @@ const Contact = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <span className="contact-link-label">Resume</span>
+                                    <span className="contact-link-label">CV</span>
                                     <span className="contact-link-title">Download PDF</span>
                                 </div>
                             </a>
@@ -152,7 +152,7 @@ const Contact = () => {
                             <label className="form-label">Message</label>
                             <textarea name="message" className="form-textarea" placeholder="Tell me about the role or project..." required></textarea>
                         </div>
-                        
+
                         <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={status === 'sending'}>
                             {status === 'sending' ? 'Sending...' : 'Send Message'}
                             {status !== 'sending' && (

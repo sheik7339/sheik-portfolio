@@ -1,5 +1,7 @@
 # Sheik Mohammed | Premium Full Stack Developer Portfolio 🚀
 
+**🔴 Live Demo:** [https://sheik-portfolio-sepia.vercel.app](https://sheik-portfolio-sepia.vercel.app)
+
 A production-ready, high-performance, SaaS-inspired developer portfolio built to showcase engineering excellence. Designed carefully with a focus on modern aesthetics, modular architecture, and a flawless user experience.
 
 ---

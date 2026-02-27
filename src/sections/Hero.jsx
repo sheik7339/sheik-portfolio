@@ -51,7 +51,7 @@ const Hero = () => {
                             </svg>
                         </a>
                         <a href="/resume.pdf" download className="btn-secondary">
-                            Download Resume
+                            Download CV
                             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
