@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sheik Mohammed — Full Stack Developer Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e293b;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .page {
+            max-width: 794px;
+            margin: 0 auto;
+            padding: 2.5rem 2.75rem;
+            min-height: 100vh;
+        }
+
+        /* ====== HEADER ====== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #1d4ed8;
+            padding-bottom: 1.25rem;
+        }
+
+        .header-left h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        .header-left h2 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2563eb;
+            margin-top: 0.25rem;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.78rem;
+            color: #475569;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .header-right a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        /* ====== SECTIONS ====== */
+        .section {
+            margin-bottom: 1.4rem;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #2563eb;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ====== SUMMARY ====== */
+        .summary {
+            color: #334155;
+            line-height: 1.7;
+            font-size: 0.85rem;
+        }
+
+        /* ====== SKILLS ====== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .skill-cat {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 0.8rem;
+            min-width: 90px;
+        }
+
+        .skill-list {
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
+        /* ====== PROJECTS ====== */
+        .project {
+            margin-bottom: 1rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.2rem;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #0f172a;
+        }
+
+        .project-tech {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .project-links {
+            font-size: 0.73rem;
+        }
+
+        .project-links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+
+        .project-desc {
+            color: #475569;
+            font-size: 0.82rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-bullets {
+            padding-left: 1rem;
+        }
+
+        .project-bullets li {
+            color: #475569;
+            font-size: 0.82rem;
+            margin-bottom: 0.15rem;
+        }
+
+        /* ====== EXPERIENCE / EDUCATION ====== */
+        .exp {
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #0f172a;
+        }
+
+        .exp-date {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .exp-org {
+            font-size: 0.8rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .exp-desc {
+            color: #475569;
+            font-size: 0.81rem;
+            margin-top: 0.2rem;
+        }
+
+        /* ====== PRINT ====== */
+        @media print {
+            body {
+                font-size: 12px;
+            }
+
+            .page {
+                padding: 1.5rem 2rem;
+            }
+
+            a {
+                color: inherit !important;
+            }
+
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <h1>Sheik Mohammed</h1>
+                <h2>Fresher Full Stack Developer</h2>
+            </div>
+            <div class="header-right">
+                <span>✉ mohammedsheik285@gmail.com</span>
+                <span>📞 +91 7339 273 120</span>
+                <span>🔗 <a href="https://www.linkedin.com/in/sheik-sheik/">linkedin.com/in/sheik-sheik</a></span>
+                <span>🐙 <a href="https://github.com/sheik7339">github.com/sheik7339</a></span>
+                <span>📍 Tiruppur, Tamil Nadu, India</span>
+            </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary">
+                Motivated Fresher Full Stack Developer with hands-on experience building and deploying production-grade
+                web applications using
+                React, Django, Node.js, and PostgreSQL. Demonstrated ability to architect scalable systems, implement
+                secure JWT authentication
+                flows, and ship real products to Vercel/Render. Passionate about clean code, modern UI/UX, and solving
+                real-world problems
+                through engineering. Actively seeking a full-time role where I can contribute immediately and grow into
+                a senior engineer.
+            </p>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-row"><span class="skill-cat">Frontend</span><span class="skill-list">React, JavaScript
+                        (ES6+), HTML5, CSS3, Tailwind CSS</span></div>
+                <div class="skill-row"><span class="skill-cat">Backend</span><span class="skill-list">Django, Node.js,
+                        Express.js, REST APIs</span></div>
+                <div class="skill-row"><span class="skill-cat">Database</span><span class="skill-list">PostgreSQL,
+                        MongoDB, SQLite</span></div>
+                <div class="skill-row"><span class="skill-cat">Auth</span><span class="skill-list">JWT, Token Refresh,
+                        Protected Routes, Django Auth</span></div>
+                <div class="skill-row"><span class="skill-cat">Deployment</span><span class="skill-list">Vercel, Render,
+                        Heroku, GitHub Pages</span></div>
+                <div class="skill-row"><span class="skill-cat">Tools</span><span class="skill-list">Git, GitHub, VS
+                        Code, Postman, Chrome DevTools</span></div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section">
+            <div class="section-title">Projects</div>
+
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-header">
+                    <span class="project-name">Bismi Arabic Institute Platform</span>
+                    <div class="project-links">
+                        <a href="https://bismi-arabic-institute.vercel.app">Live ↗</a>
+                        <a href="https://github.com/sheik7339/Bismi-arabic-institute">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="project-tech">React (Vite) · Django · PostgreSQL · Vercel · Render</div>
+                <p class="project-desc">Full-stack SaaS-level educational platform for Arabic, Quran & Tajweed learning
+                    with real-time profile management.</p>
+                <ul class="project-bullets">
+                    <li>Built complete REST API backend in Django with custom student management endpoints</li>
+                    <li>Implemented dynamic Dark/Light theme modes with persistent user preferences</li>
+                    <li>Integrated professional student consultation inquiry system with email notification</li>
+                    <li>Deployed frontend on Vercel and backend on Render with production environment variables</li>
+                </ul>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-header">
+                    <span class="project-name">PrimeTrade Auth Dashboard</span>
+                    <div class="project-links">
+                        <a href="https://primetrade-auth-dashboard-tau.vercel.app">Live ↗</a>
+                        <a href="https://github.com/sheik7339/primetrade-auth-dashboard">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="project-tech">React · Node.js · Express · JWT · Vercel</div>
+                <p class="project-desc">Secure authentication dashboard with full JWT lifecycle management and protected
+                    route architecture.</p>
+                <ul class="project-bullets">
+                    <li>Implemented access token + refresh token flow with silent refresh on expiry</li>
+                    <li>Built middleware-based route protection preventing unauthorized dashboard access</li>
+                    <li>Server-side validation with proper HTTP status codes and error responses</li>
+                </ul>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <div class="project-header">
+                    <span class="project-name">Urban Fashion E-Commerce</span>
+                    <div class="project-links">
+                        <a href="https://urbanfashion-frontend.vercel.app">Live ↗</a>
+                        <a href="https://github.com/sheik7339/urbanfashion-frontend">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="project-tech">React · Django (Backend) · PostgreSQL · Vercel</div>
+                <p class="project-desc">Modern e-commerce platform with REST API product catalogue, cart management, and
+                    Vercel deployment.</p>
+                <ul class="project-bullets">
+                    <li>Architected product catalogue with category filtering and search functionality</li>
+                    <li>Built RESTful API with Django for product, order, and user management</li>
+                    <li>Responsive UI with mobile-first design principles</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="exp">
+                <div class="exp-header">
+                    <span class="exp-role">Bachelor of Computer Science / Engineering</span>
+                    <span class="exp-date">2022 – 2026 (Expected)</span>
+                </div>
+                <div class="exp-org">Your College Name, Tamil Nadu, India</div>
+                <div class="exp-desc">Relevant coursework: Data Structures, DBMS, Web Technologies, Operating Systems,
+                    Computer Networks</div>
+            </div>
+        </div>
+
+        <!-- ADDITIONAL -->
+        <div class="section">
+            <div class="section-title">Additional Information</div>
+            <div class="skills-grid">
+                <div class="skill-row"><span class="skill-cat">GitHub</span><span class="skill-list">12+ public
+                        repositories, consistent commit history</span></div>
+                <div class="skill-row"><span class="skill-cat">Languages</span><span class="skill-list">English
+                        (Professional), Tamil (Native), Arabic (Basic)</span></div>
+                <div class="skill-row"><span class="skill-cat">Interests</span><span class="skill-list">Open Source,
+                        System Design, Clean Architecture</span></div>
+                <div class="skill-row"><span class="skill-cat">Availability</span><span class="skill-list">Immediate —
+                        Open to full-time & remote roles</span></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
