@@ -13,23 +13,20 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', fn);
     }, []);
 
-    // Prevent body scroll when mobile menu is open
+    // Lock body scroll when mobile menu is open
     useEffect(() => {
         document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [mobileMenuOpen]);
 
-    // Close menu first, then scroll to section after animation finishes
+    // Close menu → wait for animation → smooth scroll to section
     const handleNavClick = (e, sectionId) => {
         e.preventDefault();
         setMobileMenuOpen(false);
-        // Wait for menu close animation (300ms) before scrolling
         setTimeout(() => {
             const el = document.getElementById(sectionId);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }, 350);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 320);
     };
 
     const navLinks = [
@@ -40,20 +37,18 @@ const Navbar = () => {
     ];
 
     return (
-        <nav
-            className={`navbar flex items-center ${scrolled ? 'scrolled' : ''}`}
-            style={{ position: 'relative', zIndex: 50 }}
-        >
+        /* CSS gives .navbar { position: fixed; z-index: 100 } */
+        <nav className={`navbar flex items-center ${scrolled ? 'scrolled' : ''}`}>
             <div className="container-px w-full">
+                {/* navbar-inner sits at z-index: 101 so it's always above the overlay */}
                 <div
                     className="navbar-inner flex justify-between items-center w-full"
-                    style={{ position: 'relative', zIndex: 60 }}
+                    style={{ position: 'relative', zIndex: 101 }}
                 >
                     {/* Logo */}
                     <a
                         href="#hero"
                         className="nav-logo flex items-center"
-                        style={{ position: 'relative', zIndex: 60 }}
                         onClick={(e) => handleNavClick(e, 'hero')}
                     >
                         <img
@@ -67,22 +62,19 @@ const Navbar = () => {
                     <ul className="nav-links hidden md:flex gap-6 items-center">
                         {navLinks.map(({ label, id }) => (
                             <li key={id}>
-                                <a
-                                    href={`#${id}`}
-                                    className="nav-link"
-                                    onClick={(e) => handleNavClick(e, id)}
-                                >
+                                <a href={`#${id}`} className="nav-link" onClick={(e) => handleNavClick(e, id)}>
                                     {label}
                                 </a>
                             </li>
                         ))}
                     </ul>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-4" style={{ position: 'relative', zIndex: 60 }}>
+                    {/* Actions: theme toggle + Hire Me + hamburger */}
+                    <div className="flex items-center gap-4">
                         <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
                             {theme === 'dark' ? '☀️' : '🌙'}
                         </button>
+
                         <a
                             href="#contact"
                             className="nav-cta hidden sm:inline-flex"
@@ -91,12 +83,11 @@ const Navbar = () => {
                             Hire Me
                         </a>
 
-                        {/* Hamburger Button (Mobile Only) */}
+                        {/* Hamburger — always visible on mobile, above overlay */}
                         <button
                             className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 ml-2 focus:outline-none"
                             onClick={() => setMobileMenuOpen(prev => !prev)}
                             aria-label="Toggle Mobile Menu"
-                            style={{ position: 'relative', zIndex: 60 }}
                         >
                             <span className={`block w-6 h-0.5 bg-[var(--text-title)] transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
                             <span className={`block w-6 h-0.5 bg-[var(--text-title)] transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -106,16 +97,23 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay — full screen, outside navbar-inner */}
+            {/*
+              Mobile Menu Full-Screen Overlay
+              z-index: 100  = same as .navbar CSS → sits below navbar-inner (101)
+              so the logo + hamburger (X) are ALWAYS visible at top-right
+            */}
             <div
                 className="md:hidden"
                 style={{
                     position: 'fixed',
-                    inset: 0,
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
                     background: 'var(--bg-base)',
-                    backdropFilter: 'blur(16px)',
-                    WebkitBackdropFilter: 'blur(16px)',
-                    zIndex: 55,
+                    backdropFilter: 'blur(18px)',
+                    WebkitBackdropFilter: 'blur(18px)',
+                    zIndex: 100,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -131,7 +129,9 @@ const Navbar = () => {
                     <a
                         key={id}
                         href={`#${id}`}
-                        className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105"
+                        style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', textDecoration: 'none', transition: 'transform 0.2s, color 0.2s' }}
+                        onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.08)'}
+                        onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                         onClick={(e) => handleNavClick(e, id)}
                     >
                         {label}
@@ -139,7 +139,8 @@ const Navbar = () => {
                 ))}
                 <a
                     href="#contact"
-                    className="btn-primary mt-2"
+                    className="btn-primary"
+                    style={{ marginTop: '0.5rem' }}
                     onClick={(e) => handleNavClick(e, 'contact')}
                 >
                     Hire Me
