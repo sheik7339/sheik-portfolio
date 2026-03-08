@@ -28,12 +28,12 @@ const Navbar = () => {
     const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
-        <nav className={`navbar flex items-center ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar flex items-center ${scrolled ? 'scrolled' : ''}`} style={{ position: 'relative', zIndex: 50 }}>
             <div className="container-px w-full">
-                <div className="navbar-inner flex justify-between items-center w-full">
+                <div className="navbar-inner flex justify-between items-center w-full" style={{ position: 'relative', zIndex: 50 }}>
 
                     {/* Logo */}
-                    <a href="#hero" className="nav-logo flex items-center relative z-50" onClick={closeMobileMenu}>
+                    <a href="#hero" className="nav-logo flex items-center" style={{ position: 'relative', zIndex: 60 }} onClick={closeMobileMenu}>
                         <img
                             src={logoImg}
                             alt="Sheik Mohammed Logo"
@@ -50,7 +50,7 @@ const Navbar = () => {
                     </ul>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-4 relative z-50">
+                    <div className="flex items-center gap-4" style={{ position: 'relative', zIndex: 60 }}>
                         <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
                             {theme === 'dark' ? '☀️' : '🌙'}
                         </button>
@@ -67,16 +67,35 @@ const Navbar = () => {
                             <span className={`block w-6 h-0.5 bg-[var(--text-title)] transition-transform duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                         </button>
                     </div>
-
-                    {/* Mobile Menu Overlay */}
-                    <div className={`fixed inset-0 bg-[var(--bg-base)]/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out md:hidden ${mobileMenuOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}`}>
-                        <a href="#hero" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Home</a>
-                        <a href="#about" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>About</a>
-                        <a href="#projects" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Projects</a>
-                        <a href="#contact" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Contact</a>
-                        <a href="#contact" className="btn-primary mt-4" onClick={closeMobileMenu}>Hire Me</a>
-                    </div>
                 </div>
+            </div>
+
+            {/* Mobile Menu Overlay — outside navbar-inner so it covers full screen correctly */}
+            <div
+                className="md:hidden"
+                style={{
+                    position: 'fixed',
+                    inset: 0,
+                    background: 'var(--bg-base)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    zIndex: 55,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '2rem',
+                    transition: 'opacity 0.3s ease, visibility 0.3s ease',
+                    opacity: mobileMenuOpen ? 1 : 0,
+                    visibility: mobileMenuOpen ? 'visible' : 'hidden',
+                    pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+                }}
+            >
+                <a href="#hero" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Home</a>
+                <a href="#about" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>About</a>
+                <a href="#projects" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Projects</a>
+                <a href="#contact" className="text-3xl font-bold text-[var(--text-title)] transition-transform hover:scale-105" onClick={closeMobileMenu}>Contact</a>
+                <a href="#contact" className="btn-primary mt-4" onClick={closeMobileMenu}>Hire Me</a>
             </div>
         </nav>
     );
