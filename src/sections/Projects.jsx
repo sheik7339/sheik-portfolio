@@ -32,6 +32,39 @@ const projects = [
         lang: 'JavaScript',
         langColor: '#f7df1e',
     },
+    {
+        id: 4,
+        name: 'AI Resume Analyzer',
+        description: 'An AI-powered application that analyzes resumes to provide insights, scoring, and improvement suggestions for job seekers.',
+        tech: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'AI'],
+        github: 'https://github.com/sheik7339/AI-RESUME-ANALYZER',
+        live: 'https://ai-resume-analyzer-alpha-six.vercel.app',
+        highlights: ['AI-driven resume parsing and analysis', 'Modern Next.js & TypeScript architecture', 'High-performance particle animations & UI'],
+        lang: 'TypeScript',
+        langColor: '#3178c6',
+    },
+    {
+        id: 5,
+        name: 'DebugMind AI',
+        description: 'A premium, futuristic platform for advanced AI-driven debugging. Features glassmorphism design, magic link, and social login authentication.',
+        tech: ['React', 'TypeScript', 'Tailwind', 'Vite'],
+        github: 'https://github.com/sheik7339/DebugMind-AI',
+        live: 'https://debug-mind-ai.vercel.app',
+        highlights: ['State-of-the-art Glassmorphic UI', 'Integrated OAuth & Magic Link login', 'Subtle dynamic background animations'],
+        lang: 'TypeScript',
+        langColor: '#3178c6',
+    },
+    {
+        id: 6,
+        name: 'Tirupur Home Tuition',
+        description: 'Premium lead-generation website for Tirupur Home Tuition (Founded 2009). High-conversion student onboarding interface.',
+        tech: ['HTML5', 'Tailwind CSS', 'Vanilla JS'],
+        github: 'https://github.com/sheik7339/tirupur-home-tuition',
+        live: 'https://tirupur-home-tuition.vercel.app',
+        highlights: ['Optimized for high-conversion lead generation', 'Modern Tailwind CSS styling', 'Lightweight Vanilla JS interactions'],
+        lang: 'HTML',
+        langColor: '#e34c26',
+    }
 ];
 
 const GitHubIcon = () => (
@@ -56,7 +89,7 @@ const Projects = () => {
                     <span className="section-kicker">My Work</span>
                     <h2 className="section-title">Featured Projects</h2>
                     <p className="section-desc">
-                        Three real production applications I built from scratch — architecture, backend, and deployment included.
+                        Real production applications I built from scratch — architecture, backend, and deployment included.
                     </p>
                 </div>
 
